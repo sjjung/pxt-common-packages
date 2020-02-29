@@ -31,11 +31,6 @@ Projectiles are destroyed when they move off of the screen.
 Send a smiley sprite from one corner of the screen to the other.
 
 ```blocks
-enum SpriteKind {
-    Player,
-    Enemy
-}
-let smiley: Sprite = null
 let xSpeed = 50
 let ySpeed = xSpeed * scene.screenHeight() / scene.screenWidth()
 smiley = sprites.createProjectile(img`
@@ -63,13 +58,6 @@ f e e e e e f f f f f e e e e f
 Send photons out of a spaceship when the ``B`` button is pressed.
 
 ```blocks
-enum SpriteKind {
-    Player,
-    Enemy,
-    Photon
-}
-let photon: Sprite = null
-
 let ship = sprites.create(img`
 . . . . . b b b b b b b b b b . . . . . . . . . . .
 b b b b b b d d d d d d d d b b b b . . . . . . . .
@@ -85,7 +73,7 @@ b b d d b b b b b d b b b . . . . . . . . . . . . .
 b b b b b . . . b b b . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
 ship.x = 20
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     photon = sprites.createProjectile(img`
 . . . . . . 1 1 1 . .
 . . . 1 1 1 1 1 1 1 .
